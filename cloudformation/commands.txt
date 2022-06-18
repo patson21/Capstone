@@ -1,0 +1,2 @@
+
+aws cloudformation create-stack --stack-name cluster-setup --region us-west-2 --capabilities CAPABILITY_NAMED_IAM --template-body file://final-project-starter.yml
