@@ -34,7 +34,9 @@ jobs:
             python3 -m venv venv
             ls
             . venv/bin/activate
+            # path 
             pwd
+            ls -a
             make install
             # # Install hadolint
             wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
