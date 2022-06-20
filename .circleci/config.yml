@@ -34,7 +34,7 @@ jobs:
             python3 -m venv venv
             ls
             . venv/bin/activate
-            # path 
+            # path test
             pwd
             ls -a
             make install
