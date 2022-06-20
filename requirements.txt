@@ -1,9 +1,9 @@
 pytest
 pylint
-jupyter
-pytest-cov
-pandas
-nbval
-click
-flask
-requests
+# jupyter
+# pytest-cov
+# pandas
+# nbval
+# click
+# flask
+# requests
