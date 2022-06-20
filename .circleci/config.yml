@@ -17,7 +17,8 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-  create_virtual_env:
+  
+  create-virtual-env:
     docker:
       - image: python:3.7.3-stretch
     steps:
@@ -45,4 +46,4 @@ workflows:
   default:
      jobs:
        - say-hello
-       - create_virtaul_env
+       - create-virtual-env
