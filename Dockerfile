@@ -6,7 +6,7 @@ WORKDIR /app
 
 ## Step 2:
 # Copy source code to working directory
- COPY requirements.txt app_cap.py /app/
+ COPY requirements_app.txt app_cap.py /app/
 # COPY model_data model_data/
 #ADD model_data/ /app/model_data
 #COPY . /app
@@ -23,4 +23,4 @@ EXPOSE 80
 
 ## Step 5:
 # Run app.py at container launch
-CMD ["python", "app.py"]
+CMD ["python", "app_cap.py"]
