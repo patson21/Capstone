@@ -5,5 +5,5 @@ pylint
 # pandas
 # nbval
 # click
-# flask
+flask
 # requests
