@@ -36,10 +36,6 @@ jobs:
             . venv/bin/activate
             pwd
             ls -a
-            make install
-            # # Install hadolint jo
-            wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
-            chmod +x /bin/hadolint 
       - save_cache:
           paths:
             - ./venv
@@ -65,6 +61,9 @@ jobs:
             ls -a
             . venv/bin/activate
             pwd
+            # # Install hadolint jo
+            wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64 &&\
+            chmod +x /bin/hadolint
             hadolint ./Dockerfile
       - run:
           name: lint app.py
