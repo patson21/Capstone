@@ -94,9 +94,7 @@ jobs:
       - run:
           name: execute dockerfile
           command: |
-            ls -a
-            . venv/bin/activate
-            pwd
+            docker build --tag=api .
             docker image ls         
 
 # Invoke jobs via workflows
