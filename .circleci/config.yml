@@ -71,7 +71,23 @@ jobs:
             ls -a
             . venv/bin/activate
             make lint
-            
+  build-dockerimage:
+    docker:
+      - image: python:3.7.3-stretch
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "requirements.txt" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: execute dockerfile
+          command: |
+            ls -a
+            . venv/bin/activate
+            pwd
+            docker image ls         
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -83,3 +99,5 @@ workflows:
        - linting:
           requires: 
             - create-virtual-env
+       - build-dockerimage:
+            - linting
