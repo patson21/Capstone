@@ -102,7 +102,7 @@ jobs:
             docker build --tag=api .
             docker image ls
             echo "$DOCKERHUB_PASS"
-            docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_PASS"
             # docker push $IMAGE_NAME:latest  
 
 # Invoke jobs via workflows
