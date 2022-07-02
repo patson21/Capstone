@@ -94,7 +94,7 @@ jobs:
       - run:
           name: execute dockerfile
           command: |
-            docker build --tag=api_ci .
+            docker build --tag=$DOCKERHUB_USERNAME/api_ci .
             docker image ls  
       - run:
           name: pushing to repo
