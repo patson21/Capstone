@@ -118,6 +118,8 @@ jobs:
           command: |
             kubectl version --client
             kubectl config view
+            cd ~/.kube
+            ls
             #kubectl cluster-info
 
 # Invoke jobs via workflows
