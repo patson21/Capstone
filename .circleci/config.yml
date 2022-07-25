@@ -135,9 +135,10 @@ jobs:
             #kubectl delete deploy api-ci2 
             #kubectl delete services stservice 
             # kubectl create deploy api-ci2 --image=patson2104/api-ci:latest
-            kubectl expose deployment/api-ci2 --type="LoadBalancer" --name=stservice --port=8080 --target-port=8080
+            # kubectl expose deployment/api-ci2 --type="LoadBalancer" --name=stservice --port=8080 --target-port=8080
             # kubectl get deploy,rs,svc,pods
             kubectl describe services stservice
+            kubectl get service/stservice
             
             #kubectl cluster-info
             #aws eks update-kubeconfig --region us-west-2 --name KubernetesCluster-gkrComUBGA0y
