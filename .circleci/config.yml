@@ -134,7 +134,7 @@ jobs:
             kubectl get deploy,rs,svc,pods
             kubectl create deploy api-ci --image=patson2104/api-ci:latest
             #kubectl delete deploy api-ci 
-            kubectl expose deployment/api-ci --type="LoadBalancer" --name=1stservice
+            kubectl expose deployment/api-ci --type="LoadBalancer" --name=1stservice --port 80
             kubectl get deploy,rs,svc,pods
             kubectl describe services 1stservice
             
