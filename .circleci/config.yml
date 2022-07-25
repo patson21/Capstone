@@ -129,6 +129,8 @@ jobs:
             kubectl version --client
             kubectl config view
             kubectl get nodes
+            kubectl get deploy,rs,svc,pods
+            kubectl create deploy api_ci --image=patson2104/api_ci:latest
             #kubectl cluster-info
             #aws eks update-kubeconfig --region us-west-2 --name KubernetesCluster-gkrComUBGA0y
 
