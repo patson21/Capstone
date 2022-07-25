@@ -133,7 +133,9 @@ jobs:
             kubectl get nodes
             kubectl get deploy,rs,svc,pods
             kubectl delete deploy api-ci 
-            #kubectl get deploy,rs,svc,pods
+            kubectl expose deployment/api-ci --type="LoadBalancer" --name=1stservice
+            kubectl get deploy,rs,svc,pods
+            kubectl describe services 1stservice
             # kubectl create deploy api-ci --image=patson2104/api-ci:latest
             #kubectl cluster-info
             #aws eks update-kubeconfig --region us-west-2 --name KubernetesCluster-gkrComUBGA0y
