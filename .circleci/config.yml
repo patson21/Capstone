@@ -143,4 +143,5 @@ workflows:
       #  - build-dockerimage:
       #     requires:
       #       - linting
-        - configure-kubectl
+        - configure-kubectl:
+            cluster-name: KubernetesCluster-gkrComUBGA0y
