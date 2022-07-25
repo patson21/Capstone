@@ -134,10 +134,10 @@ jobs:
             kubectl get deploy,rs,svc,pods
             #kubectl delete deploy api-ci2 
             #kubectl delete services stservice 
-            #kubectl create deploy api-ci2 --image=patson2104/api-ci:latest
-            #kubectl expose deployment/api-ci2 --type="LoadBalancer" --name=stservice --port 80
+            kubectl create deploy api-ci2 --image=patson2104/api-ci:latest
+            kubectl expose deployment/api-ci2 --type="LoadBalancer" --name=stservice --port 8080
             kubectl get deploy,rs,svc,pods
-            #kubectl describe services stservice
+            kubectl describe services stservice
             
             #kubectl cluster-info
             #aws eks update-kubeconfig --region us-west-2 --name KubernetesCluster-gkrComUBGA0y
@@ -148,13 +148,13 @@ workflows:
   default:
      jobs:
       # - say-hello
-        - create-virtual-env
-        - linting:
-            requires: 
-              - create-virtual-env
-        - build-dockerimage:
-            requires:
-              - linting
-        - configure-kubectl:
-            requires:
-              - build-dockerimage #cluster-name: KubernetesCluster-gkrComUBGA0y
+        # - create-virtual-env
+        # - linting:
+        #     requires: 
+        #       - create-virtual-env
+        # - build-dockerimage:
+        #     requires:
+        #       - linting
+        - configure-kubectl
+            # requires:
+            #   - build-dockerimage #cluster-name: KubernetesCluster-gkrComUBGA0y
