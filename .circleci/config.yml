@@ -112,11 +112,12 @@ jobs:
     steps:
       - checkout
       #- setup_remote_docker
-      - kubernetes/install
+      - kubernetes/install-kubectl
       - run:
           name: kubectl first steps
           command: |
             kubectl version --client
+            kubectl cluster-info
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
