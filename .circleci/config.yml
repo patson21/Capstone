@@ -122,7 +122,7 @@ jobs:
             cd ..
             ls -a
             cd ~/
-            cd .. 
+            cd ..
             ls -a
             #kubectl cluster-info
 
@@ -131,7 +131,7 @@ jobs:
 workflows:
   default:
      jobs:
-      #  - say-hello
+        - say-hello
       #  - create-virtual-env
       #  - linting:
       #     requires: 
@@ -139,4 +139,4 @@ workflows:
       #  - build-dockerimage:
       #     requires:
       #       - linting
-       - configure-kubectl
+      #- configure-kubectl
