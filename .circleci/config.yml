@@ -96,16 +96,16 @@ jobs:
       - run:
           name: execute dockerfile
           command: |
-            docker build --tag=$DOCKERHUB_USERNAME/api_ci .
+            docker build --tag=$DOCKERHUB_USERNAME/api-ci .
             docker image ls  
       - run:
           name: pushing to repository
           command: |
-            #docker build --tag=api_ci .
+            #docker build --tag=api-ci .
             docker image ls
             echo "$DOCKERHUB_PASS"
             docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_PASS"
-            docker push $DOCKERHUB_USERNAME/api_ci:latest
+            docker push $DOCKERHUB_USERNAME/api-ci:latest
   configure-kubectl:
     docker:
       - image: "cimg/python:3.10"
@@ -130,7 +130,7 @@ jobs:
             kubectl config view
             kubectl get nodes
             kubectl get deploy,rs,svc,pods
-            kubectl create deploy api_ci --image=patson2104/api_ci:latest
+            kubectl create deploy api-ci --image=patson2104/api-ci:latest
             #kubectl cluster-info
             #aws eks update-kubeconfig --region us-west-2 --name KubernetesCluster-gkrComUBGA0y
 
@@ -140,12 +140,12 @@ workflows:
   default:
      jobs:
       # - say-hello
-      #  - create-virtual-env
-      #  - linting:
-      #     requires: 
-      #       - create-virtual-env
-      #  - build-dockerimage:
-      #     requires:
-      #       - linting
+        - create-virtual-env
+        - linting:
+            requires: 
+              - create-virtual-env
+        - build-dockerimage:
+            requires:
+              - linting
         - configure-kubectl
             #cluster-name: KubernetesCluster-gkrComUBGA0y
