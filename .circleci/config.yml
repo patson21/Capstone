@@ -112,12 +112,14 @@ jobs:
     parameters:
       cluster-name:
         description: |
-          KubernetesCluster-gkrComUBGA0y
+          Name of cluster
         type: string
     steps:
       - checkout
       #- setup_remote_docker
       - kubernetes/install-kubectl
+      - aws_cli_install
+      - aws_configure_credentials
       - aws-eks/update-kubeconfig-with-authenticator:
           cluster-name: KubernetesCluster-gkrComUBGA0y
           install-kubectl: true
