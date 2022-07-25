@@ -119,7 +119,7 @@ jobs:
       #- setup_remote_docker
       - kubernetes/install-kubectl
       - aws-eks/update-kubeconfig-with-authenticator:
-          cluster-name: parameters.cluster-name
+          cluster-name: KubernetesCluster-gkrComUBGA0y
           install-kubectl: true
       - run:
           name: kubectl first steps
