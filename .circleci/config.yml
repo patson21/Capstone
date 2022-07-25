@@ -132,7 +132,9 @@ jobs:
             kubectl config view
             kubectl get nodes
             kubectl get deploy,rs,svc,pods
-            kubectl create deploy api-ci --image=patson2104/api-ci:latest
+            kubectl delete deploy app-ci 
+            kubectl get deploy,rs,svc,pods
+            # kubectl create deploy api-ci --image=patson2104/api-ci:latest
             #kubectl cluster-info
             #aws eks update-kubeconfig --region us-west-2 --name KubernetesCluster-gkrComUBGA0y
 
@@ -142,13 +144,13 @@ workflows:
   default:
      jobs:
       # - say-hello
-        - create-virtual-env
-        - linting:
-            requires: 
-              - create-virtual-env
-        - build-dockerimage:
-            requires:
-              - linting
-        # - configure-kubectl:
+        # - create-virtual-env
+        # - linting:
+        #     requires: 
+        #       - create-virtual-env
+        # - build-dockerimage:
+        #     requires:
+        #       - linting
+        - configure-kubectl
         #     requires:
         #       - build-dockerimage #cluster-name: KubernetesCluster-gkrComUBGA0y
