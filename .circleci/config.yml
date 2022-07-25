@@ -38,6 +38,7 @@ jobs:
             . venv/bin/activate
             pwd
             ls -a
+            make install
       - save_cache:
           paths:
             - ./venv
@@ -72,7 +73,7 @@ jobs:
           command: |
             ls -a
             . venv/bin/activate
-            make install
+            #make install
             make lint
 
   build-dockerimage:
