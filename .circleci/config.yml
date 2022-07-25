@@ -122,12 +122,12 @@ jobs:
 workflows:
   default:
      jobs:
-       - say-hello
-       - create-virtual-env
-       - linting:
-          requires: 
-            - create-virtual-env
-       - build-dockerimage:
-          requires:
-            - linting
+      #  - say-hello
+      #  - create-virtual-env
+      #  - linting:
+      #     requires: 
+      #       - create-virtual-env
+      #  - build-dockerimage:
+      #     requires:
+      #       - linting
        - configure-kubectl
