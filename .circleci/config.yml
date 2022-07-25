@@ -98,7 +98,7 @@ jobs:
       - run:
           name: execute dockerfile
           command: |
-            docker build --tag=$DOCKERHUB_USERNAME/api-ci .
+            docker build --tag=$DOCKERHUB_USERNAME/api-ci2 .
             docker image ls  
       - run:
           name: pushing to repository
@@ -107,7 +107,7 @@ jobs:
             docker image ls
             echo "$DOCKERHUB_PASS"
             docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_PASS"
-            docker push $DOCKERHUB_USERNAME/api-ci:latest
+            docker push $DOCKERHUB_USERNAME/api-ci2:latest
   configure-kubectl:
     docker:
       - image: "cimg/python:3.10"
@@ -132,10 +132,10 @@ jobs:
             kubectl config view
             kubectl get nodes
             kubectl get deploy,rs,svc,pods
-            kubectl delete deploy api-ci 
-            kubectl delete services stservice 
-            #kubectl create deploy api-ci --image=patson2104/api-ci:latest
-            #kubectl expose deployment/api-ci --type="LoadBalancer" --name=stservice --port 80
+            #kubectl delete deploy api-ci2 
+            #kubectl delete services stservice 
+            #kubectl create deploy api-ci2 --image=patson2104/api-ci:latest
+            #kubectl expose deployment/api-ci2 --type="LoadBalancer" --name=stservice --port 80
             kubectl get deploy,rs,svc,pods
             #kubectl describe services stservice
             
@@ -148,13 +148,13 @@ workflows:
   default:
      jobs:
       # - say-hello
-        # - create-virtual-env
-        # - linting:
-        #     requires: 
-        #       - create-virtual-env
-        # - build-dockerimage:
-        #     requires:
-        #       - linting
-        - configure-kubectl
-        #     requires:
-        #       - build-dockerimage #cluster-name: KubernetesCluster-gkrComUBGA0y
+        - create-virtual-env
+        - linting:
+            requires: 
+              - create-virtual-env
+        - build-dockerimage:
+            requires:
+              - linting
+        - configure-kubectl:
+            requires:
+              - build-dockerimage #cluster-name: KubernetesCluster-gkrComUBGA0y

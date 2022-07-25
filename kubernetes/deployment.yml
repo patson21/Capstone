@@ -1,38 +1,46 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: project-5-udacity
+  name: api-ci
   labels:
-    app: project-5-udacity
+    app: api-ci
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: project-5-udacity
+      app: api-ci
   template:
     metadata:
       labels:
-        app: project-5-udacity
+        app: api-ci
+        #role: rolling-update
     spec:
       containers:
-        - name: project-5-udacity
-          image: 976245815270.dkr.ecr.us-east-1.amazonaws.com/project-5-minhpb3:v1
+        - name: api-ci
+          image: patson2104/api-ci:latest
           imagePullPolicy: Always
           ports:
-            - name: app
-              containerPort: 80
+            - name: api-ci
+              containerPort: 8080
+            # readinessProbe:
+            #   httpGet:
+            #     path: /
+            #     port: 8080
+  # strategy:
+  #   type: RollingUpdate
+  #   rollingUp      maxSurge: 50%
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: project-5-udacity-service
+  name: api-ci-service
 spec:
   type: LoadBalancer
   ports:
     - port: 8080
-      targetPort: 80
-      name: project-5
+      targetPort: 8080
+      name: api-ci
       protocol: TCP
   selector:
-    app: project-5-udacity
+    app: api-ci
