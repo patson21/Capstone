@@ -109,21 +109,24 @@ jobs:
   configure-kubectl:
     docker:
       - image: "cimg/python:3.10"
+    parameters:
+      cluster-name:
+        description: |
+          KubernetesCluster-gkrComUBGA0y
+        type: string
     steps:
       - checkout
       #- setup_remote_docker
       - kubernetes/install-kubectl
+      - aws-eks/update-kubeconfig-with-authenticator:
+          cluster-name: << parameters.cluster-name >>
+          install-kubectl: true
       - run:
           name: kubectl first steps
           command: |
             kubectl version --client
             kubectl config view
-            ls -a
-            cd ..
-            ls -a
-            cd ~/
-            cd ..
-            ls -a
+           
             #kubectl cluster-info
 
 # Invoke jobs via workflows
@@ -131,7 +134,7 @@ jobs:
 workflows:
   default:
      jobs:
-        - say-hello
+      # - say-hello
       #  - create-virtual-env
       #  - linting:
       #     requires: 
@@ -139,4 +142,4 @@ workflows:
       #  - build-dockerimage:
       #     requires:
       #       - linting
-      #- configure-kubectl
+        - configure-kubectl
