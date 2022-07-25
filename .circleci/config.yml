@@ -109,11 +109,11 @@ jobs:
   configure-kubectl:
     docker:
       - image: "cimg/python:3.10"
-    parameters:
-      cluster-name:
-        description: |
-          Name of cluster
-        type: string
+    # parameters:
+    #   cluster-name:
+    #     description: |
+    #       Name of cluster
+    #     type: string
     steps:
       - checkout
       #- setup_remote_docker
@@ -124,11 +124,11 @@ jobs:
           cluster-name: KubernetesCluster-gkrComUBGA0y
           install-kubectl: true
       - run:
-          name: kubectl first steps
+          name: configure kubectl and deploy
           command: |
             kubectl version --client
             kubectl config view
-           
+            kubectl get nodes
             #kubectl cluster-info
             #aws eks update-kubeconfig --region us-west-2 --name KubernetesCluster-gkrComUBGA0y
 
