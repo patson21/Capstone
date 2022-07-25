@@ -112,6 +112,7 @@ jobs:
     steps:
       - checkout
       #- setup_remote_docker
+      - kubernetes/install
       - run:
           name: kubectl first steps
           command: |
