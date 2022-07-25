@@ -132,11 +132,12 @@ jobs:
             kubectl config view
             kubectl get nodes
             kubectl get deploy,rs,svc,pods
-            #kubectl delete deploy api-ci 
+            kubectl delete deploy api-ci 
+            kubectl delete services stservice 
             #kubectl create deploy api-ci --image=patson2104/api-ci:latest
-            kubectl expose deployment/api-ci --type="LoadBalancer" --name=stservice --port 80
+            #kubectl expose deployment/api-ci --type="LoadBalancer" --name=stservice --port 80
             kubectl get deploy,rs,svc,pods
-            kubectl describe services stservice
+            #kubectl describe services stservice
             
             #kubectl cluster-info
             #aws eks update-kubeconfig --region us-west-2 --name KubernetesCluster-gkrComUBGA0y
