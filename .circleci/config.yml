@@ -138,8 +138,8 @@ jobs:
             # kubectl expose deployment/api-ci2 --type="LoadBalancer" --name=stservice --port=8080 --target-port=8080
             # kubectl get deploy,rs,svc,pods
             # kubectl port-forward pod/api-ci2-6d878bc695-jwtt5 --address 0.0.0.0 8080:8080
-            kubectl describe services stservice
-            kubectl get service/stservice
+            # kubectl describe services stservice
+            # kubectl get service/stservice
             
             #kubectl cluster-info
             #aws eks update-kubeconfig --region us-west-2 --name KubernetesCluster-gkrComUBGA0y
