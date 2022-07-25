@@ -132,7 +132,7 @@ jobs:
             kubectl config view
             kubectl get nodes
             kubectl get deploy,rs,svc,pods
-            kubectl delete deploy app-ci 
+            kubectl delete deploy api-ci 
             #kubectl get deploy,rs,svc,pods
             # kubectl create deploy api-ci --image=patson2104/api-ci:latest
             #kubectl cluster-info
