@@ -133,7 +133,8 @@ jobs:
             kubectl get nodes
             kubectl get deploy,rs,svc,pods
             # kubectl delete deploy api-ci2 
-            # kubectl delete services stservice 
+            # kubectl delete services stservice
+            apply -f https://k8s.io/examples/service/load-balancer-example.yaml 
             #kubectl apply -f deployment.yml
             #kubectl expose deployment api-ci --type=LoadBalancer --name=my-service
             #kubectl get nodes
