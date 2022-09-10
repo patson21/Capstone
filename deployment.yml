@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-ci
+  labels:
+    app: api-ci
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api-ci
+  template:
+    metadata:
+      labels:
+        app: api-ci
+        #role: rolling-update
+    spec:
+      containers:
+        - name: api-ci
+          image: patson2104/api-ci:latest
+          imagePullPolicy: Always
+          ports:
+            - name: api-ci
+              containerPort: 8080
+            # readinessProbe:
+            #   httpGet:
+            #     path: /
+            #     port: 8080
+  # strategy:
+  #   type: RollingUpdate
+  #   rollingUp      maxSurge: 50%
