@@ -123,7 +123,7 @@ jobs:
       # - aws_cli_install
       # - aws_configure_credentials
       - aws-eks/update-kubeconfig-with-authenticator:
-          cluster-name: KubernetesCluster-gkrComUBGA0y
+          cluster-name: KubernetesCluster-CFkEiZqBzQxg
           install-kubectl: true
       - run:
           name: configure kubectl and deploy
