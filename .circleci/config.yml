@@ -138,6 +138,8 @@ jobs:
             kubectl expose deployment api-ci --type=LoadBalancer --name=my-service
             #kubectl get nodes
             kubectl get deploy,rs,svc,pods
+            kubectl get services my-service
+            kubectl describe services my-service
             # kubectl create deploy api-ci2 --image=patson2104/api-ci:latest
             # kubectl expose deployment/api-ci2 --type="LoadBalancer" --name=stservice --port=8080 --target-port=8080
             # kubectl get deploy,rs,svc,pods
