@@ -163,9 +163,9 @@ workflows:
      jobs:
       # - say-hello
          - create-virtual-env
-         - linting:
-             requires: 
-               - create-virtual-env
+      #   - linting:
+      #       requires: 
+      #         - create-virtual-env
          - build-dockerimage:
              requires:
                - linting
