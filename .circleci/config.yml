@@ -168,7 +168,8 @@ workflows:
       #         - create-virtual-env
          - build-dockerimage:
              requires:
-               - linting
+      #         - linting
+               - create-virtual-env
          - configure-kubectl:
             requires:
                - build-dockerimage #cluster-name: KubernetesCluster-gkrComUBGA0y
