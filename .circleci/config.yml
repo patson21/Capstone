@@ -161,7 +161,7 @@ jobs:
 workflows:
   default:
      jobs:
-         - say-hello
+      # - say-hello
          - create-virtual-env
          - linting:
              requires: 
@@ -169,6 +169,6 @@ workflows:
          - build-dockerimage:
              requires:
                - linting
-        - configure-kubectl:
-             requires:
+         - configure-kubectl:
+            requires:
                - build-dockerimage #cluster-name: KubernetesCluster-gkrComUBGA0y
