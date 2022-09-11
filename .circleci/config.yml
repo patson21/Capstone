@@ -161,7 +161,7 @@ jobs:
 workflows:
   default:
      jobs:
-      # - say-hello
+         - say-hello
          - create-virtual-env
          - linting:
              requires: 
