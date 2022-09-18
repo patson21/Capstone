@@ -116,7 +116,7 @@ jobs:
             #kubectl config view
             #echo "### Deletion of ressources (services, deployments if necessary)"
             #kubectl delete services flask1-service
-            # kubectl delete deployment flask1
+            #kubectl delete deployment flask1
             echo "### Deployments, Replica Set, Services, Pods Overview"
             kubectl get deployments
             kubectl get deploy,rs,svc,pods
