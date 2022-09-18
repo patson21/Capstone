@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: flask1 #api-ci
-          image: $DOCKERHUB_USERNAME/flask1:latest #patson2104/api-ci:latest
+          image: patson2104/flask1:latest #patson2104/api-ci:latest
           imagePullPolicy: Always
           ports:
             - name: flask1 #api-ci
