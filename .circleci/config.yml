@@ -135,7 +135,7 @@ jobs:
             # kubectl delete services flask1-service
             # kubectl delete deployment hello-world
             # kubectl delete deployment api-ci
-             kubectl delete deployment flask1
+            # kubectl delete deployment flask1
             # kubectl get deploy,rs,svc,pods
             # kubectl create deploy api-ci2 --image=patson2104/api-ci:latest
             # kubectl expose deployment/api-ci2 --type="LoadBalancer" --name=stservice --port=8080 --target-port=8080
