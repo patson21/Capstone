@@ -7,7 +7,7 @@ app = Flask(__name__)
 def hello():
     #name = request.args.get("name", "World")
     #return f'Hello, {escape(name)}!'
-    return '<h1>Hello from Flask & Docker - rolling deployment__neu</h2>'
+    return '<h1>Hello from Capstone Project - before rolling update</h2>'
 
 if __name__ == "__main__":
     #app.run()
