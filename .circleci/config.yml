@@ -91,7 +91,7 @@ jobs:
             echo "$DOCKERHUB_PASS"
             docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_PASS"
             #docker push $DOCKERHUB_USERNAME/api-ci2:latest
-            docker push $DOCKERHUB_USERNAME/flask1:latest
+            docker push $DOCKERHUB_USERNAME/flask1:v2
   configure-kubectl:
     docker:
       - image: "cimg/python:3.10"
@@ -116,7 +116,7 @@ jobs:
             #kubectl config view
             #echo "### Deletion of ressources (services, deployments if necessary)"
             #kubectl delete services flask1-service
-            kubectl delete deployment flask1after
+            #kubectl delete deployment flask1after
             echo "### Deployments, Replica Set, Services, Pods Overview"
             kubectl get deployments
             kubectl get deploy,rs,svc,pods
@@ -139,13 +139,13 @@ jobs:
 workflows:
   default:
      jobs:
-      #   - create-virtual-env
-      #   - linting:
-      #       requires: 
-      #         - create-virtual-env
-      #   - build-dockerimage:
-      #       requires:
-      #         - linting
-         - configure-kubectl #:
-      #       requires:
-      #         - build-dockerimage 
+         - create-virtual-env
+         - linting:
+             requires: 
+               - create-virtual-env
+         - build-dockerimage:
+             requires:
+               - linting
+         - configure-kubectl:
+             requires:
+               - build-dockerimage 
