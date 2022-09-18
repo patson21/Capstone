@@ -143,7 +143,7 @@ jobs:
             #kubectl expose deployment api-ci --type=LoadBalancer --name=my-service
             #kubectl expose deployment flask1 --type=LoadBalancer --name=flask1-service
             #kubectl get nodes
-            kubectl set image deployments/flask1 flask1=patson2104/flask1:latest #jocatalin/kubernetes-bootcamp:v2
+            kubectl set image deployments/flask1 flask1=patson2104/api-ci:latest #patson2104/flask1:latest #jocatalin/kubernetes-bootcamp:v2
             kubectl get deploy,rs,svc,pods
             #kubectl get services my-service-hw
             #kubectl describe services my-service-hw
