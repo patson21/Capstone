@@ -152,14 +152,14 @@ jobs:
 workflows:
   default:
      jobs:
-         - create-virtual-env
-         - linting:
-             requires: 
-               - create-virtual-env
-         - build-dockerimage:
-             requires:
-               - linting
+    #     - create-virtual-env
+    #     - linting:
+    #         requires: 
+    #           - create-virtual-env
+    #     - build-dockerimage:
+    #         requires:
+    #           - linting
       #         - create-virtual-env
-         - configure-kubectl:
-             requires:
-               - build-dockerimage #cluster-name: KubernetesCluster-gkrComUBGA0y
+         - configure-kubectl
+    #         requires:
+    #           - build-dockerimage #cluster-name: KubernetesCluster-gkrComUBGA0y
