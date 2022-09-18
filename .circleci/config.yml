@@ -114,7 +114,7 @@ jobs:
           command: |
             #kubectl version --client
             #kubectl config view
-            echo "### Deletion of ressources (services, deployments if necessary)"
+            #echo "### Deletion of ressources (services, deployments if necessary)"
             #kubectl delete services flask1-service
             # kubectl delete deployment flask1
             echo "### Deployments, Replica Set, Services, Pods Overview"
@@ -124,7 +124,7 @@ jobs:
             kubectl apply -f deployment.yml
             # kubectl set image deployments/flask1 flask1=patson2104/flask1:v1
             echo "### Exposing deployment through creation of service of type LoadBalancer (only for the very first time)"
-            kubectl expose deployment flask1 --type=LoadBalancer --name=flask1-service
+            #kubectl expose deployment flask1 --type=LoadBalancer --name=flask1-service
             echo "### Rollout Status"
             kubectl rollout status deployment flask1
             echo "### Deployments, Replica Set, Services, Pods Overview"
@@ -146,7 +146,6 @@ workflows:
          - build-dockerimage:
              requires:
                - linting
-      #         - create-virtual-env
          - configure-kubectl:
              requires:
-               - build-dockerimage #cluster-name: KubernetesCluster-gkrComUBGA0y
+               - build-dockerimage 
