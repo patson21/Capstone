@@ -139,13 +139,13 @@ jobs:
 workflows:
   default:
      jobs:
-         - create-virtual-env
-         - linting:
-             requires: 
-               - create-virtual-env
-         - build-dockerimage:
-             requires:
-               - linting
-         - configure-kubectl:
-             requires:
-               - build-dockerimage 
+      #   - create-virtual-env
+      #   - linting:
+      #       requires: 
+      #         - create-virtual-env
+      #   - build-dockerimage:
+      #       requires:
+      #         - linting
+         - configure-kubectl #:
+      #       requires:
+      #         - build-dockerimage 

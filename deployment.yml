@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask1 #api-ci
+  name: flask1after #api-ci
   labels:
     app: flask1 #api-ci
 spec:
@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-        app: flask1_after #api-ci
+        app: flask1 #api-ci
         role: rolling-update
     spec:
       containers:
