@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask1after #api-ci
+  name: flask1 #api-ci
   labels:
-    app: flask1 #api-ci
+    app: flask1after #api-ci
 spec:
   replicas: 2
   selector:
