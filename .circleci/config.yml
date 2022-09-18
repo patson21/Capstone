@@ -121,7 +121,7 @@ jobs:
             # kubectl delete services stservice
             #kubectl apply -f https://k8s.io/examples/service/load-balancer-example.yaml 
             #kubectl expose deployment hello-world --type=LoadBalancer --name=my-service-hw
-            kubectl apply -f deployment.yml
+            #kubectl apply -f deployment.yml
             #kubectl expose deployment api-ci --type=LoadBalancer --name=my-service
             #kubectl expose deployment flask1 --type=LoadBalancer --name=flask1-service
             #kubectl get nodes
@@ -135,7 +135,7 @@ jobs:
             # kubectl delete services flask1-service
             # kubectl delete deployment hello-world
             # kubectl delete deployment api-ci
-            # kubectl delete deployment flask1
+             kubectl delete deployment flask1
             # kubectl get deploy,rs,svc,pods
             # kubectl create deploy api-ci2 --image=patson2104/api-ci:latest
             # kubectl expose deployment/api-ci2 --type="LoadBalancer" --name=stservice --port=8080 --target-port=8080
@@ -152,14 +152,14 @@ jobs:
 workflows:
   default:
      jobs:
-         - create-virtual-env
-         - linting:
-             requires: 
-               - create-virtual-env
-         - build-dockerimage:
-             requires:
-               - linting
+      #   - create-virtual-env
+      #   - linting:
+      #       requires: 
       #         - create-virtual-env
-         - configure-kubectl:
-             requires:
-               - build-dockerimage #cluster-name: KubernetesCluster-gkrComUBGA0y
+      #   - build-dockerimage:
+      #       requires:
+      #         - linting
+      #         - create-virtual-env
+         - configure-kubectl #:
+      #       requires:
+      #         - build-dockerimage #cluster-name: KubernetesCluster-gkrComUBGA0y
