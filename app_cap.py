@@ -1,5 +1,5 @@
     # save this as app.py
-from flask import Flask, escape #, request
+from flask import Flask #, escape #, request
 
 app = Flask(__name__)
 
