@@ -13,11 +13,11 @@ spec:
     metadata:
       labels:
         app: flask1 #api-ci
-        #role: rolling-update
+        role: rolling-update
     spec:
       containers:
         - name: flask1 #api-ci
-          image: patson2104/flask1:latest #patson2104/api-ci:latest
+          image: $DOCKERHUB_USERNAME/flask1:latest #patson2104/api-ci:latest
           imagePullPolicy: Always
           ports:
             - name: flask1 #api-ci
@@ -26,6 +26,6 @@ spec:
             #   httpGet:
             #     path: /
             #     port: 8080
-  # strategy:
-  #   type: RollingUpdate
-  #   rollingUp      maxSurge: 50%
+  strategy:
+    type: RollingUpdate
+    rollingUp      maxSurge: 50%
