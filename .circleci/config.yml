@@ -81,7 +81,7 @@ jobs:
           name: execute dockerfile
           command: |
             #docker build --tag=$DOCKERHUB_USERNAME/api-ci2 .
-            docker build --tag=$DOCKERHUB_USERNAME/flask1 .
+            docker build --tag=$DOCKERHUB_USERNAME/flask1:v1 .
             docker image ls  
       - run:
           name: pushing to repository
@@ -160,6 +160,6 @@ workflows:
              requires:
                - linting
       #         - create-virtual-env
-         - configure-kubectl
-    #         requires:
-    #           - build-dockerimage #cluster-name: KubernetesCluster-gkrComUBGA0y
+         - configure-kubectl:
+             requires:
+               - build-dockerimage #cluster-name: KubernetesCluster-gkrComUBGA0y
