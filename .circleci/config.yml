@@ -115,8 +115,8 @@ jobs:
             #kubectl version --client
             #kubectl config view
             #echo "### Deletion of ressources (services, deployments if necessary)"
-            kubectl delete services flask1-service
-            kubectl delete deployment flask1
+            #kubectl delete services flask1-service
+            #kubectl delete deployment flask1
             echo "### Deployments, Replica Set, Services, Pods Overview"
             kubectl get deployments
             kubectl get deploy,rs,svc,pods
@@ -126,7 +126,7 @@ jobs:
             echo "### Exposing deployment through creation of service of type LoadBalancer (only for the very first time)"
             #kubectl expose deployment flask1 --type=LoadBalancer --name=flask1-service
             echo "### Rollout Status"
-            kubectl rollout status deployment flask1
+            #kubectl rollout status deployment flask1
             echo "### Deployments, Replica Set, Services, Pods Overview"
             kubectl get deploy,rs,svc,pods
             #kubectl get services flask1-service
